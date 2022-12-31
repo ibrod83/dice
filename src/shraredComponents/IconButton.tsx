@@ -3,7 +3,7 @@ import './IconButton.css';
 
 
 interface IconButtonProps extends React.ButtonHTMLAttributes<HTMLButtonElement> {
-    icon?: any
+    icon?: React.ReactNode
     children: React.ReactNode;
 }
 const IconButton: React.FunctionComponent<IconButtonProps> = (props) => {
