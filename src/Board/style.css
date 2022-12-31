@@ -1,19 +1,9 @@
-.board {
-    padding: 0px 15%;
-    
+.board {    
     position: relative;
     width: 100%;
-    text-transform: uppercase;
-    color: grey;
-    font-weight: 200;
-
 }
 
-@media only screen and (max-width: 900px) {
-   .board{
-    padding: 0px 5%;
-   }
-  }
+
 
 .board__reset {
     text-align: center;
@@ -47,7 +37,7 @@
 
 .board__controls{
     align-items: center;
-    top:78%;
+    top:75%;
     left:50%;
     transform: translate(-50%, -50%);
     position: absolute;

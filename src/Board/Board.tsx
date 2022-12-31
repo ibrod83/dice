@@ -56,6 +56,7 @@ function Board() {
     })
   }
 
+  //Moves to the next player in the array, or goes back to the first(relevant for more than two players)
   const switchToNextPlayer = () => {
     modifyPlayerByIndex(currentPlayerIndex, { isActive: false })
     const nextPlayerIndex = players[currentPlayerIndex + 1] ? currentPlayerIndex + 1 : 0
@@ -88,31 +89,35 @@ function Board() {
     }
   }
 
-  const reset = (shouldKeepNumWins: boolean) => {
+  const newGame = () => {
     setPlayers((currentPlayers) => {
-      if (shouldKeepNumWins) {
-        return defaultBoard.players.map((p, i) => {
-          return {
-            ...p,
-            numWins: currentPlayers[i].numWins//Maintain the number of wins of each player
-          }
-        })
-      } else {
-        return defaultBoard.players
-      }
-
+      return defaultBoard.players.map((p, i) => {
+        return {
+          ...p,
+          numWins: currentPlayers[i].numWins//Maintain the number of wins of each player
+        }
+      })
     })
     setCurrentDice1(null)
     setCurrentDice2(null)
   }
 
+  const reset = () => {
+    setPlayers(defaultBoard.players)
+    setCurrentDice1(null)
+    setCurrentDice2(null)
+    setGoalScore(defaultBoard.goalScore)
+
+  }
+
 
 
   return (
+    <>
     <div className="board">
       <div className="board__reset">
-        <IconButton className='board__reset-button' onClick={() => { reset(false) }} icon={<RxReset color={iconColor} />}>Reset All</IconButton>
-        <IconButton onClick={() => { reset(true) }} icon={<AiOutlinePlusCircle color={iconColor} />}>New game</IconButton>
+        <IconButton className='board__reset-button' onClick={reset} icon={<RxReset color={iconColor} />}>Reset All</IconButton>
+        <IconButton onClick={newGame} icon={<AiOutlinePlusCircle color={iconColor} />}>New game</IconButton>
       </div>
       <div className="board__players">
         <Player player={players[0]}></Player>
@@ -128,7 +133,29 @@ function Board() {
         <IconButton disabled={hasEnded} onClick={hold} icon={<BsDownload color={iconColor} />}> Hold</IconButton>
         <input min={1} onChange={(e) => { setGoalScore(parseInt(e.target.value)) }} value={goalScore} type="number" className='board__controls-input' placeholder='Final Score' />
       </div>
+      
     </div>
+    <div className="instructions">
+    <h2>Instructions</h2>
+    <p>
+      The game has 2 players, playing in rounds.
+    In each turn, a player rolls 2 dices as many times as he wishes.
+    Each result will get added to his round’s score.
+    But if the player rolls a double six all his round’s score gets lost.
+    After that, its the next player’s turn. 
+    </p>
+   <p>
+    A player can choose to ‘Hold’, which means that his round’s score
+    gets added to his global score. After that, its the next players turn.
+    The first player to reach 100 points wins.
+   </p>
+   <p>
+    Pressing "new game" will reset the score. Pressing reset will also reset the win counter of each player.
+   </p>
+    
+  </div>
+    </>
+    
   );
 }
 

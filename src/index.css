@@ -15,6 +15,19 @@ body {
   
 }
 
+.container{
+  text-transform: uppercase;
+  color: grey;
+  font-weight: 200;
+  padding: 0px 15%;
+}
+
+@media only screen and (max-width: 900px) {
+  .container{
+   padding: 0px 5%;
+  }
+ }
+
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;

@@ -2,7 +2,7 @@ import Board from './Board/Board';
 
 function App() {
   return (
-    <div >
+    <div className='container'>
       <Board></Board>
     </div>
   );

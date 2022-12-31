@@ -26,7 +26,7 @@ export const defaultBoard: Board = {
         overallScore: 0
     }
     ],
-    goalScore: 20,
+    goalScore: 100,
     dice1: null,
     dice2: null
 };
