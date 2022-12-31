@@ -119,7 +119,7 @@ function Board() {
           <IconButton onClick={newGame} icon={<AiOutlinePlusCircle color={iconColor} />}>New game</IconButton>
         </div>
         <div className="board__players">
-          {players.map(p=><Player player={p}></Player>)}
+          {players.map(p=><Player key={p.id} player={p}></Player>)}
         </div>
         <div className="board__dices">
 
