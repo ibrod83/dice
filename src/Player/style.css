@@ -1,0 +1,58 @@
+.player {
+    padding-top: 65px;
+    width: 50%;
+}
+
+
+.player__score {
+    text-align: center;
+    font-size: 3.5rem;
+    color: var(--third-color);
+}
+
+.player__name {
+    font-weight: 100;
+    font-size: 2.5rem;
+    text-align: center;
+    margin-bottom: 0px;
+}
+
+.player__numWins{
+    text-align: center;
+}
+
+.player__current {
+    margin-top: 9rem;
+    padding-bottom: 2rem;
+    justify-content: center;
+    display: flex;
+
+
+}
+
+.player__current-content {
+    border-radius: 5px;
+    padding: 3% 6%;
+    text-align: center;
+    font-size: 1.5rem;
+
+    background-color: var(--third-color);
+}
+
+.player__current-title {
+    color: lightgray
+}
+
+.player__current-title,
+.player__current-dice {
+    margin: 0px;
+}
+
+.player__current-dice {
+    color: white;
+}
+
+.player__indicator {
+    margin-left: 0.75rem;
+    color: var(--first-color)
+}

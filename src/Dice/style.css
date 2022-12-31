@@ -1,0 +1,64 @@
+.dice-container{
+  display: flex;
+  flex-direction: column;
+  gap:2.8rem
+}
+
+.face-1 {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.dice {
+  padding: 4px;
+  background-color:var(--third-color);
+  width: 104px;
+  height: 104px;
+  border-radius: 10%;
+  margin-right : 10px;
+}
+.dot{
+  display: block;
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
+  background-color:white;
+}
+
+.face-2{
+  display: flex ;
+  justify-content: space-between;
+}
+
+.face-2 .dot:nth-of-type(2) {
+  align-self: flex-end;
+}
+
+.face-3 {
+  display: flex;
+  justify-content: space-between;
+}
+
+.face-3 .dot:nth-of-type(1) {
+  align-self :flex-end;
+}
+
+.face-3 .dot:nth-of-type(2) {
+  align-self :center;
+}
+
+
+.face-4 , .face-6, .face-5{
+  display: flex;
+  justify-content: space-between;
+}
+
+.face-4 .column , .face-6 .column, .face-5 .column{
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.face-5 .column:nth-of-type(2) {
+  justify-content: center;
+}
