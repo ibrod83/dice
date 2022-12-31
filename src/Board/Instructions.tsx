@@ -1,6 +1,4 @@
-
 import './style.css';
-
 
 const Instructions = () => {
     return (
@@ -21,19 +19,8 @@ const Instructions = () => {
             <p>
                 Pressing "new game" will reset the score. Pressing reset will also reset the win counter of each player.
             </p>
-
         </div>
     );
 }
 
 export default Instructions;
-
-
-
-
-
-
-
-
-
-

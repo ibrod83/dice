@@ -16,8 +16,8 @@ const jsonFromPersistence = localStorage.getItem('diceGamePersistence')
 function Board() {
   const [players, setPlayers] = useState<Array<I_Player>>(defaultBoard.players)//Rely on an array of players, in order to hypothetically support more than two players
   const [goalScore, setGoalScore] = useState(100)
-  const [dice1, setCurrentDice1] = useState<number | null>(null)
-  const [dice2, setCurrentDice2] = useState<number | null>(null)
+  const [dice1, setDice1] = useState<number | null>(null)
+  const [dice2, setDice2] = useState<number | null>(null)
 
   //Create the state from persistence
   useEffect(() => {
@@ -25,8 +25,8 @@ function Board() {
       const { players, dice1, dice2, goalScore } = JSON.parse(jsonFromPersistence)
       setPlayers(players)
       setGoalScore(goalScore)
-      setCurrentDice1(dice1)
-      setCurrentDice2(dice2)
+      setDice1(dice1)
+      setDice2(dice2)
     }
   }, [jsonFromPersistence])
 
@@ -77,8 +77,8 @@ function Board() {
   const performStep = () => {
     const dice1 = getRandomInt(1, 6)
     const dice2 = getRandomInt(1, 6)
-    setCurrentDice1(dice1)
-    setCurrentDice2(dice2)
+    setDice1(dice1)
+    setDice2(dice2)
 
     const currentRoundScore = currentPlayer.currentRoundScore
 
@@ -99,19 +99,17 @@ function Board() {
         }
       })
     })
-    setCurrentDice1(null)
-    setCurrentDice2(null)
+    setDice1(null)
+    setDice2(null)
   }
 
   const reset = () => {
     setPlayers(defaultBoard.players)
-    setCurrentDice1(null)
-    setCurrentDice2(null)
+    setDice1(null)
+    setDice2(null)
     setGoalScore(defaultBoard.goalScore)
 
   }
-
-
 
   return (
     <>
@@ -121,8 +119,7 @@ function Board() {
           <IconButton onClick={newGame} icon={<AiOutlinePlusCircle color={iconColor} />}>New game</IconButton>
         </div>
         <div className="board__players">
-          <Player player={players[0]}></Player>
-          <Player player={players[1]}></Player>
+          {players.map(p=><Player player={p}></Player>)}
         </div>
         <div className="board__dices">
 
